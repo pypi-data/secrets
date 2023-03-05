@@ -1,21 +1,21 @@
 const fs = require('fs');
 
 module.exports = async ({github, fetch}) => {
-    let x = await github.rest.secretScanning.listAlertsForOrg({
-  org: "pypi-data",
-});
-    console.log(x);
-    // let response = await github.rest.repos.listForOrg({
-    //     org: "pypi-data",
-    //     sort: "full_name",
-    // });
+    let response = await github.rest.repos.listForOrg({
+        org: "pypi-data",
+        sort: "full_name",
+    });
 
-    // let repo_names = response.data.map(r => r.full_name).filter(name => name.startsWith("pypi-data/pypi-code-")).map(name => name.split('/')[1]);
+    let repo_names = response.data.map(r => r.full_name).filter(name => name.startsWith("pypi-data/pypi-code-")).map(name => name.split('/')[1]);
 
-    // let indexes = [];
-    // for (const idx in repo_names) {
-    //     let name = repo_names[idx];
-    //     let api_response = await github.rest.repos.getContent({
+    let indexes = [];
+    for (const idx in repo_names) {
+        let name = repo_names[idx];
+        let alerts = github.rest.secretScanning.listAlertsForRepo({
+            owner: "pypi-data",
+            repo: name
+        });
+        console.log(alerts);
     //         owner: "pypi-data",
     //         repo: name,
     //         path: "index.json",
@@ -32,5 +32,5 @@ module.exports = async ({github, fetch}) => {
     //         count
     //     }
     //     console.log(output);
-    // }
+    }
 }
