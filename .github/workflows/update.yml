@@ -1,0 +1,23 @@
+name: Update Index
+on:
+  workflow_dispatch:
+  push:
+
+concurrency: ci-secrets-${{ github.ref }}
+
+permissions:
+  contents: write
+  security-events: read
+
+jobs:
+  update-index:
+    name: Update Index
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.SECRET_SCANNING_TOKEN }}
+          script: |
+            const script = require('./scripts/script.js')
+            console.log(await script({github, fetch}))
