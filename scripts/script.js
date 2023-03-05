@@ -11,7 +11,7 @@ module.exports = async ({github, fetch}) => {
     let indexes = [];
     for (const idx in repo_names) {
         let name = repo_names[idx];
-        let alerts = github.rest.secretScanning.listAlertsForRepo({
+        let alerts = await github.rest.secretScanning.listAlertsForRepo({
             owner: "pypi-data",
             repo: name
         });
