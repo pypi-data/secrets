@@ -5,7 +5,7 @@ use serde::Deserialize;
 use std::collections::{HashMap, HashSet};
 
 use chrono::prelude::*;
-use futures::StreamExt;
+// use futures::StreamExt;
 use tinytemplate::TinyTemplate;
 use url::Url;
 
@@ -74,37 +74,46 @@ async fn main() -> anyhow::Result<()> {
         println!("Fetched alert page {}", idx);
     }
 
-    let futures = all_alerts.into_iter().map(|alert| async {
-        let locations = github
-            .get_page::<AlertLocation>(&Some(alert.locations_url.clone()))
-            .await?
-            .unwrap();
-        Ok::<_, anyhow::Error>((alert, locations))
-    });
-
-    let mut stream = futures::stream::iter(futures).buffer_unordered(20);
-
-    println!("Fetching secret locations");
-    while let Some(v) = stream.next().await {
-        let (alert, locations) = v?;
+    for alert in all_alerts {
         let alerts = alerts_summary
             .entry(alert.secret_type_display_name)
             .or_default();
         alerts.count += 1;
         alerts.secrets.insert(alert.secret);
-        alerts.unique_packages.extend(
-            locations
-                .items
-                .into_iter()
-                .map(|location| location.details.path.split('/').next().unwrap().to_string()),
-        );
     }
+
+    // let futures = all_alerts.into_iter().map(|alert| async {
+    //     let locations = github
+    //         .get_page::<AlertLocation>(&Some(alert.locations_url.clone()))
+    //         .await?
+    //         .unwrap();
+    //     Ok::<_, anyhow::Error>((alert, locations))
+    // });
+
+    // let mut stream = futures::stream::iter(futures).buffer_unordered(20);
+
+    // Hitting API request limits!
+    // println!("Fetching secret locations");
+    // while let Some(v) = stream.next().await {
+    //     let (alert, locations) = v?;
+    //     let alerts = alerts_summary
+    //         .entry(alert.secret_type_display_name)
+    //         .or_default();
+    //     alerts.count += 1;
+    //     alerts.secrets.insert(alert.secret);
+    //     alerts.unique_packages.extend(
+    //         locations
+    //             .items
+    //             .into_iter()
+    //             .map(|location| location.details.path.split('/').next().unwrap().to_string()),
+    //     );
+    // }
 
     let unique_alerts = alerts_summary.len();
     let total_alerts: u32 = alerts_summary.values().map(|a| a.count).sum();
     let table: Vec<_> = alerts_summary
         .into_iter()
-        .map(|(a, c)| (a, c.count, c.unique_packages.len(), c.secrets.len()))
+        .map(|(a, c)| (a, c.count, c.secrets.len(), c.unique_packages.len()))
         .sorted_by(|a, b| a.1.cmp(&b.1).reverse())
         .collect();
 
