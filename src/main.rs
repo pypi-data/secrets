@@ -1,13 +1,13 @@
 use itertools::Itertools;
-use octocrab::params::repos::Sort;
-use octocrab::{Octocrab, Page, Result};
+
+use octocrab::Octocrab;
 use serde::Deserialize;
 use std::collections::{HashMap, HashSet};
-use std::collections::hash_map::Entry;
+
+use chrono::prelude::*;
 use futures::StreamExt;
 use tinytemplate::TinyTemplate;
 use url::Url;
-use chrono::prelude::*;
 
 #[derive(Deserialize, Debug, Hash, Eq, PartialEq)]
 struct Alert {
@@ -36,20 +36,29 @@ struct DetectedAlerts {
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     // let github = octocrab::instance();
-    let token = std::env::var("SECRET_SCANNING_TOKEN").expect("SECRET_SCANNING_TOKEN env variable is required");
+    let token = std::env::var("SECRET_SCANNING_TOKEN")
+        .expect("SECRET_SCANNING_TOKEN env variable is required");
 
     let github = Octocrab::builder().personal_token(token).build()?;
     // let names = get_all_repo_names(&github).await?;
     let limit = github.ratelimit().get().await?;
     println!("Rate limit: {:#?}", limit.resources.core);
-    let reset_time = NaiveDateTime::from_timestamp_opt(limit.resources.core.reset as i64, 0).unwrap();
+    let reset_time =
+        NaiveDateTime::from_timestamp_opt(limit.resources.core.reset as i64, 0).unwrap();
     let reset_time: DateTime<Utc> = DateTime::from_utc(reset_time, Utc);
     let now = Utc::now();
-    println!("Rate limit resetting @ {reset_time} (in {})", reset_time - now);
+    let reset = reset_time - now;
+    println!(
+        "Rate limit resetting @ {reset_time} (in {}h {}s)",
+        reset.num_hours(),
+        reset.num_minutes()
+    );
 
     // let x: Result<Alert> = github.get("/orgs/pypi-data/secret-scanning/alerts", None::<&()>).await;
-    let mut url: Option<Url> =
-        Some("https://api.github.com/orgs/pypi-data/secret-scanning/alerts?per_page=100&sort=created".parse()?);
+    let mut url: Option<Url> = Some(
+        "https://api.github.com/orgs/pypi-data/secret-scanning/alerts?per_page=100&sort=created"
+            .parse()?,
+    );
     let mut alerts_summary: HashMap<String, DetectedAlerts> = HashMap::new();
 
     let mut idx = 0;
@@ -78,7 +87,9 @@ async fn main() -> anyhow::Result<()> {
     println!("Fetching secret locations");
     while let Some(v) = stream.next().await {
         let (alert, locations) = v?;
-        let alerts = alerts_summary.entry(alert.secret_type_display_name).or_default();
+        let alerts = alerts_summary
+            .entry(alert.secret_type_display_name)
+            .or_default();
         alerts.count += 1;
         alerts.secrets.insert(alert.secret);
         alerts.unique_packages.extend(
