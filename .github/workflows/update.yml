@@ -2,6 +2,8 @@ name: Update Index
 on:
   workflow_dispatch:
   push:
+  schedule:
+    - cron: '0 0 * * *'
 
 concurrency: ci-secrets-${{ github.ref }}
 
@@ -15,9 +17,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/github-script@v6
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
         with:
-          github-token: ${{ secrets.SECRET_SCANNING_TOKEN }}
-          script: |
-            const script = require('./scripts/script.js')
-            console.log(await script({github, fetch}))
+          toolchain: stable
+          override: true
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
+
+      - name: run
+        uses: actions-rs/cargo@v1
+        env:
+          SECRET_SCANNING_TOKEN: ${{ secrets.SECRET_SCANNING_TOKEN }}
+        with:
+          command: run
+          args: --release
+
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: 'README.md'
+          # From https://github.community/t/github-actions-bot-email-address/17204/5
+          author_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          author_name: "commit-bot"
+          message: "Scheduled data update from Github Actions"
+          push: true
+          fetch: false
