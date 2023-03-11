@@ -23,8 +23,8 @@ Total secrets: 8625
 | SendGrid API Key | 108 | 15 |
 | Azure Storage Account Access Key | 106 | 20 |
 | Tencent WeChat API App ID | 101 | 44 |
-| Amazon OAuth Client ID | 88 | 6 |
 | Amazon OAuth Client Secret | 88 | 6 |
+| Amazon OAuth Client ID | 88 | 6 |
 | Mailgun API Key | 83 | 12 |
 | Amazon AWS Session Token | 75 | 17 |
 | Amazon AWS Temporary Access Key ID | 75 | 17 |
@@ -49,10 +49,10 @@ Total secrets: 8625
 | Azure Active Directory Application Secret | 20 | 6 |
 | Asana Legacy Format Personal Access Token | 20 | 1 |
 | Grafana Project API Key | 17 | 6 |
-| GitLab Access Token | 13 | 8 |
 | Atlassian API Token | 13 | 5 |
-| Stripe Live API Restricted Key | 11 | 2 |
+| GitLab Access Token | 13 | 8 |
 | Intercom Access Token | 11 | 2 |
+| Stripe Live API Restricted Key | 11 | 2 |
 | Stripe Webhook Signing Secret | 10 | 6 |
 | Google OAuth Refresh Token | 9 | 3 |
 | Midtrans Sandbox Server Key | 8 | 1 |
@@ -68,12 +68,12 @@ Total secrets: 8625
 | Firebase Cloud Messaging Server Key | 3 | 3 |
 | Bitbucket Server Personal Access Token | 2 | 2 |
 | Shopify Private App Password | 2 | 1 |
-| Shopify Access Token | 1 | 1 |
-| Onfido Sandbox API Token | 1 | 1 |
-| Azure Function Key | 1 | 1 |
 | Azure Cache for Redis Access Key | 1 | 1 |
-| Tableau Personal Access Token | 1 | 1 |
-| Adobe JSON Web Token | 1 | 1 |
-| eBay Production Client ID (App ID) | 1 | 1 |
 | Terraform Cloud / Enterprise API Token | 1 | 1 |
+| Shopify Access Token | 1 | 1 |
+| Adobe JSON Web Token | 1 | 1 |
+| Tableau Personal Access Token | 1 | 1 |
+| Onfido Sandbox API Token | 1 | 1 |
+| eBay Production Client ID (App ID) | 1 | 1 |
 | eBay Production Client Secret (Cert ID) | 1 | 1 |
+| Azure Function Key | 1 | 1 |
