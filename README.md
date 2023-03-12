@@ -63,17 +63,17 @@ Total secrets: 8625
 | Square Production Application Secret | 6 | 1 |
 | Stripe Test API Restricted Key | 5 | 1 |
 | Yandex.Dictionary API Key | 4 | 1 |
+| Firebase Cloud Messaging Server Key | 3 | 3 |
 | Twilio API Key | 3 | 1 |
 | Adobe Short-Lived Access Token | 3 | 2 |
-| Firebase Cloud Messaging Server Key | 3 | 3 |
 | Bitbucket Server Personal Access Token | 2 | 2 |
 | Shopify Private App Password | 2 | 1 |
-| Azure Cache for Redis Access Key | 1 | 1 |
 | Terraform Cloud / Enterprise API Token | 1 | 1 |
+| Onfido Sandbox API Token | 1 | 1 |
+| Tableau Personal Access Token | 1 | 1 |
+| Azure Function Key | 1 | 1 |
+| Azure Cache for Redis Access Key | 1 | 1 |
+| eBay Production Client Secret (Cert ID) | 1 | 1 |
+| eBay Production Client ID (App ID) | 1 | 1 |
 | Shopify Access Token | 1 | 1 |
 | Adobe JSON Web Token | 1 | 1 |
-| Tableau Personal Access Token | 1 | 1 |
-| Onfido Sandbox API Token | 1 | 1 |
-| eBay Production Client ID (App ID) | 1 | 1 |
-| eBay Production Client Secret (Cert ID) | 1 | 1 |
-| Azure Function Key | 1 | 1 |
