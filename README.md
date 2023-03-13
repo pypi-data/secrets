@@ -23,11 +23,11 @@ Total secrets: 8625
 | SendGrid API Key | 108 | 15 |
 | Azure Storage Account Access Key | 106 | 20 |
 | Tencent WeChat API App ID | 101 | 44 |
-| Amazon OAuth Client Secret | 88 | 6 |
 | Amazon OAuth Client ID | 88 | 6 |
+| Amazon OAuth Client Secret | 88 | 6 |
 | Mailgun API Key | 83 | 12 |
-| Amazon AWS Session Token | 75 | 17 |
 | Amazon AWS Temporary Access Key ID | 75 | 17 |
+| Amazon AWS Session Token | 75 | 17 |
 | Yandex.Translate API Key | 73 | 70 |
 | Dropbox Access Token | 70 | 9 |
 | Discord Bot Token | 69 | 46 |
@@ -39,8 +39,8 @@ Total secrets: 8625
 | Facebook Access Token | 34 | 19 |
 | Notion Integration Token | 33 | 11 |
 | OpenAI API Key | 29 | 18 |
-| Hubspot API Key | 26 | 1 |
 | Google OAuth Client ID | 26 | 12 |
+| Hubspot API Key | 26 | 1 |
 | Azure DevOps Personal Access Token | 25 | 5 |
 | Google OAuth Client Secret | 24 | 10 |
 | GitHub App Installation Access Token | 23 | 4 |
@@ -51,8 +51,8 @@ Total secrets: 8625
 | Grafana Project API Key | 17 | 6 |
 | Atlassian API Token | 13 | 5 |
 | GitLab Access Token | 13 | 8 |
-| Intercom Access Token | 11 | 2 |
 | Stripe Live API Restricted Key | 11 | 2 |
+| Intercom Access Token | 11 | 2 |
 | Stripe Webhook Signing Secret | 10 | 6 |
 | Google OAuth Refresh Token | 9 | 3 |
 | Midtrans Sandbox Server Key | 8 | 1 |
@@ -64,16 +64,16 @@ Total secrets: 8625
 | Stripe Test API Restricted Key | 5 | 1 |
 | Yandex.Dictionary API Key | 4 | 1 |
 | Firebase Cloud Messaging Server Key | 3 | 3 |
-| Twilio API Key | 3 | 1 |
 | Adobe Short-Lived Access Token | 3 | 2 |
+| Twilio API Key | 3 | 1 |
 | Bitbucket Server Personal Access Token | 2 | 2 |
 | Shopify Private App Password | 2 | 1 |
-| Terraform Cloud / Enterprise API Token | 1 | 1 |
-| Onfido Sandbox API Token | 1 | 1 |
-| Tableau Personal Access Token | 1 | 1 |
 | Azure Function Key | 1 | 1 |
 | Azure Cache for Redis Access Key | 1 | 1 |
-| eBay Production Client Secret (Cert ID) | 1 | 1 |
-| eBay Production Client ID (App ID) | 1 | 1 |
+| Onfido Sandbox API Token | 1 | 1 |
 | Shopify Access Token | 1 | 1 |
+| eBay Production Client ID (App ID) | 1 | 1 |
+| eBay Production Client Secret (Cert ID) | 1 | 1 |
+| Tableau Personal Access Token | 1 | 1 |
 | Adobe JSON Web Token | 1 | 1 |
+| Terraform Cloud / Enterprise API Token | 1 | 1 |
