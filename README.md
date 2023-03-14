@@ -2,13 +2,13 @@
 
 Total secret types: 71
 
-Total secrets: 8625
+Total secrets: 8627
 
 | Type | Count | Unique Secrets |
 |------|-------|----------------|
 | Google API Key | 1709 | 280 |
-| Amazon AWS Secret Access Key | 1100 | 200 |
-| Amazon AWS Access Key ID | 862 | 175 |
+| Amazon AWS Secret Access Key | 1101 | 201 |
+| Amazon AWS Access Key ID | 863 | 176 |
 | Telegram Bot Token | 559 | 104 |
 | Slack Incoming Webhook URL | 462 | 72 |
 | Alibaba Cloud AccessKey Secret | 427 | 62 |
@@ -39,15 +39,15 @@ Total secrets: 8625
 | Facebook Access Token | 34 | 19 |
 | Notion Integration Token | 33 | 11 |
 | OpenAI API Key | 29 | 18 |
-| Google OAuth Client ID | 26 | 12 |
 | Hubspot API Key | 26 | 1 |
+| Google OAuth Client ID | 26 | 12 |
 | Azure DevOps Personal Access Token | 25 | 5 |
 | Google OAuth Client Secret | 24 | 10 |
 | GitHub App Installation Access Token | 23 | 4 |
 | Stripe API Key | 22 | 6 |
 | npm Access Token | 21 | 1 |
-| Azure Active Directory Application Secret | 20 | 6 |
 | Asana Legacy Format Personal Access Token | 20 | 1 |
+| Azure Active Directory Application Secret | 20 | 6 |
 | Grafana Project API Key | 17 | 6 |
 | Atlassian API Token | 13 | 5 |
 | GitLab Access Token | 13 | 8 |
@@ -55,25 +55,25 @@ Total secrets: 8625
 | Intercom Access Token | 11 | 2 |
 | Stripe Webhook Signing Secret | 10 | 6 |
 | Google OAuth Refresh Token | 9 | 3 |
-| Midtrans Sandbox Server Key | 8 | 1 |
 | Dropbox Short-Lived Access Token | 8 | 4 |
+| Midtrans Sandbox Server Key | 8 | 1 |
 | Sendinblue API Key | 7 | 4 |
 | Shippo Test API Token | 7 | 1 |
-| Square Access Token | 6 | 1 |
 | Square Production Application Secret | 6 | 1 |
+| Square Access Token | 6 | 1 |
 | Stripe Test API Restricted Key | 5 | 1 |
 | Yandex.Dictionary API Key | 4 | 1 |
-| Firebase Cloud Messaging Server Key | 3 | 3 |
-| Adobe Short-Lived Access Token | 3 | 2 |
 | Twilio API Key | 3 | 1 |
+| Adobe Short-Lived Access Token | 3 | 2 |
+| Firebase Cloud Messaging Server Key | 3 | 3 |
 | Bitbucket Server Personal Access Token | 2 | 2 |
 | Shopify Private App Password | 2 | 1 |
-| Azure Function Key | 1 | 1 |
-| Azure Cache for Redis Access Key | 1 | 1 |
-| Onfido Sandbox API Token | 1 | 1 |
-| Shopify Access Token | 1 | 1 |
 | eBay Production Client ID (App ID) | 1 | 1 |
-| eBay Production Client Secret (Cert ID) | 1 | 1 |
+| Azure Cache for Redis Access Key | 1 | 1 |
+| Shopify Access Token | 1 | 1 |
 | Tableau Personal Access Token | 1 | 1 |
-| Adobe JSON Web Token | 1 | 1 |
+| Azure Function Key | 1 | 1 |
+| Onfido Sandbox API Token | 1 | 1 |
 | Terraform Cloud / Enterprise API Token | 1 | 1 |
+| eBay Production Client Secret (Cert ID) | 1 | 1 |
+| Adobe JSON Web Token | 1 | 1 |
